@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_list_sms_channel_list_1" model="ir.ui.view">
+            <field name="name">sms.channel.list</field>
+            <field name="model">sms.channel</field>
+            <field name="arch" type="xml">
+                <tree string="Channels">
+                    <field name="name"/>
+                    <field name="sms_sender"/>
+                    <field name="sms_auth_key"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_form_sms_channel_1" model="ir.ui.view">
+            <field name="name">sms.channel.form</field>
+            <field name="model">sms.channel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" reqiured="1"/>
+                                <field name="sms_sender" reqiured="1"/>
+                                <field name="sms_auth_key" reqiured="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_window_sms_1" model="ir.actions.act_window">
+            <field name="name">SMS Channel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sms.channel</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_sms_root" name="SMS" action="action_window_sms_1"/>
+
+    </data>
+</odoo>
